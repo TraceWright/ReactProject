@@ -27,38 +27,12 @@ import AppOutline from './components/appOutline.js';
 //   networkInterface: mockNetworkInterface,
 // });
 
-function personRequest() {
-  const params = {
-      method: 'GET',
-      keepalive: true,
-      headers: {
-          Accept: 'application/json'
-      },
-  };
-  const result = fetch('http://localhost:4000/person/', params);
-  result.then(response => {
-    return response.json();
-  }).then(data => {
-    console.log(data);
-    return data;
-  })
-};
-
-function showPerson() {
-  let data = personRequest();
-  console.log(data);
-}
-
 class App extends Component {
 
   render() {
     return (
-
         <div className="App">
-       
         <AppOutline />
-          <button onClick={showPerson}>List People</button>
-
         </div>
     );
   }

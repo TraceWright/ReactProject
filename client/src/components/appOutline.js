@@ -9,16 +9,10 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { Home } from './home';
+import { CSSGrid } from './cssGrid';
+import { People } from './people';
 
 injectTapEventPlugin();
-
-
-
-const Login = () => (
-  <div>
-    <h2>Login</h2>
-  </div>
-)
 
 // export const routes = () => (
 
@@ -65,8 +59,8 @@ class AppOutline extends Component {
          <Drawer docked={false} width={200} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <Menu desktop={true} style={menuStyle} autoWidth={true} >
           <MenuItem primaryText="Home" style={menuItemStyle} containerElement={<Link to="/home"></Link>} />
-          <MenuItem primaryText="CSS Grid" style={menuItemStyle}/>
-          <MenuItem primaryText="Person" style={menuItemStyle}/>
+          <MenuItem primaryText="CSS Grid" style={menuItemStyle} containerElement={<Link to="/cssGrid"></Link>} />
+          <MenuItem primaryText="People" style={menuItemStyle} containerElement={<Link to="/people"></Link>} />
           <MenuItem
             primaryText="Menu Item"
             style={menuItemStyle}
@@ -95,14 +89,11 @@ class AppOutline extends Component {
           <MenuItem primaryText="Menu Item" style={menuItemStyle} />
           </Menu>
           </Drawer> 
-      <ul>
-      <li><Link to="/home">Home</Link></li>
-      <li><Link to="/login">Login</Link></li>
-      </ul>
 
       {/* <Route exact path="/" component={Home}/> */}
       <Route path="/home" component={Home}/>
-      <Route path="/login" component={Login}/>
+      <Route path="/cssGrid" component={CSSGrid}/>
+      <Route path="/people" component={People}/>
     </div>
   </Router>
           </MuiThemeProvider>
