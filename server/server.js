@@ -24,7 +24,7 @@ const pgPool = new Pool({
   }
 });
 
-server.use('*', cors({ origin: 'http://localhost:3000' }));
+server.use('*', cors({ origin: 'http://localhost:3001' }));
 
 server.get('/person', function(req, res){
   pgPool.query('Select * from person.person limit 100').then(function(data){
@@ -40,7 +40,7 @@ server.get('/person', function(req, res){
 //   console.log(people.rows[0]);
 // })
 
- 
+  
 
 
 

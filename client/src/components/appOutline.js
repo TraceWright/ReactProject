@@ -23,25 +23,21 @@ const Login = () => (
   </div>
 )
 
-export const routes = () => (
-  <Router>
-    <div>
-      <ul>
-      <li><Link to="/">Home</Link></li>
-      <li><Link to="/login">Login</Link></li>
-      </ul>
+// export const routes = () => (
 
-      <Route exact path="/" component={Home}/>
-      <Route path="/login" component={Login}/>
-    </div>
-  </Router>
-);
+// );
 
 const menuStyle = {
   display: 'inline-block',
   margin: '16px 32px 16px 0',
-  paddingTop: '50px'
+  paddingTop: '50px',
+  
 };
+
+const menuItemStyle = {
+  textAlign: 'left', 
+  paddingLeft: '20px',
+}
 
 class AppOutline extends Component {
 
@@ -51,12 +47,14 @@ class AppOutline extends Component {
   }
 
   handleToggle = () => this.setState({open: !this.state.open});
+  handleClose = () => this.setState({open: false});
 
     render() {
         return (
             <div>
+              
             <MuiThemeProvider>
-            <AppBar style={{zIndex: '1301'}}
+            <AppBar style={{zIndex: '1301', backgroundImage: 'linear-gradient(20deg, #2b3658 0%, #523e5b 100%)'}}
               title="My Awesome App"
               iconClassNameRight="muidocs-icon-navigation-expand-more"
               onLeftIconButtonTouchTap={this.handleToggle}
@@ -64,40 +62,53 @@ class AppOutline extends Component {
             </MuiThemeProvider>
   
             <MuiThemeProvider>
+            <Router>
+    <div>
   
-         <Drawer open={this.state.open}>
-          <Menu desktop={true} style={menuStyle}>
-          <MenuItem primaryText="Single" insetChildren={true} />
-          <MenuItem primaryText="1.15" insetChildren={true} />
-          <MenuItem primaryText="Double" insetChildren={true} />
+         <Drawer docked={false} width={200} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
+          <Menu desktop={true} style={menuStyle} autoWidth={true} >
+          <MenuItem primaryText="Home" style={menuItemStyle} containerElement={<Link to="/"></Link>} />
+          <MenuItem primaryText="Menu Item" style={menuItemStyle}/>
+          <MenuItem primaryText="Menu Item" style={menuItemStyle}/>
           <MenuItem
-            primaryText="Custom: 1.2"
-            checked={true}
+            primaryText="Menu Item"
+            style={menuItemStyle}
             rightIcon={<ArrowDropRight />}
             menuItems={[
               <MenuItem
-                primaryText="Show"
+                primaryText="Menu Item"
+                style={menuItemStyle}
                 rightIcon={<ArrowDropRight />}
                 menuItems={[
-                  <MenuItem primaryText="Show Level 2" />,
-                  <MenuItem primaryText="Grid lines" checked={true} />,
-                  <MenuItem primaryText="Page breaks" insetChildren={true} />,
-                  <MenuItem primaryText="Rules" checked={true} />,
+                  <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
+                  <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
+                  <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
+                  <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
                 ]}
               />,
-              <MenuItem primaryText="Grid lines" checked={true} />,
-              <MenuItem primaryText="Page breaks" insetChildren={true} />,
-              <MenuItem primaryText="Rules" checked={true} />,
+              <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
+              <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
+              <MenuItem primaryText="Menu Item" style={menuItemStyle} />,
             ]}
           />
           <Divider />
-          <MenuItem primaryText="Menu Item" />
-          <MenuItem primaryText="Menu Item" />
+          <MenuItem primaryText="Menu Item" style={menuItemStyle} />
+          <MenuItem primaryText="Menu Item" style={menuItemStyle} />
           <Divider />
-          <MenuItem primaryText="Custom spacing..." />
+          <MenuItem primaryText="Menu Item" style={menuItemStyle} />
           </Menu>
-          </Drawer>
+          </Drawer> 
+      <ul>
+      <li><Link to="/">Home</Link></li>
+      <li><Link to="/login">Login</Link></li>
+      </ul>
+
+      <Route exact path="/" component={Home}/>
+      <Route path="/login" component={Login}/>
+    </div>
+  </Router>
           </MuiThemeProvider>
+          
           </div>
         )}
 }
