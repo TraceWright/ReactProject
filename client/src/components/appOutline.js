@@ -7,15 +7,12 @@ import Divider from 'material-ui/Divider';
 import ArrowDropRight from 'material-ui/svg-icons/navigation-arrow-drop-right';
 import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { Home } from './home';
 
 injectTapEventPlugin();
 
-export const Home = () => (
-  <div>
-    <h2>Home</h2>
-  </div>
-)
+
 
 const Login = () => (
   <div>
@@ -67,9 +64,9 @@ class AppOutline extends Component {
   
          <Drawer docked={false} width={200} open={this.state.open} onRequestChange={(open) => this.setState({open})}>
           <Menu desktop={true} style={menuStyle} autoWidth={true} >
-          <MenuItem primaryText="Home" style={menuItemStyle} containerElement={<Link to="/"></Link>} />
-          <MenuItem primaryText="Menu Item" style={menuItemStyle}/>
-          <MenuItem primaryText="Menu Item" style={menuItemStyle}/>
+          <MenuItem primaryText="Home" style={menuItemStyle} containerElement={<Link to="/home"></Link>} />
+          <MenuItem primaryText="CSS Grid" style={menuItemStyle}/>
+          <MenuItem primaryText="Person" style={menuItemStyle}/>
           <MenuItem
             primaryText="Menu Item"
             style={menuItemStyle}
@@ -99,11 +96,12 @@ class AppOutline extends Component {
           </Menu>
           </Drawer> 
       <ul>
-      <li><Link to="/">Home</Link></li>
+      <li><Link to="/home">Home</Link></li>
       <li><Link to="/login">Login</Link></li>
       </ul>
 
-      <Route exact path="/" component={Home}/>
+      {/* <Route exact path="/" component={Home}/> */}
+      <Route path="/home" component={Home}/>
       <Route path="/login" component={Login}/>
     </div>
   </Router>

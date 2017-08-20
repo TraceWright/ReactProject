@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 
 import './App.css';
 import AppOutline from './components/appOutline.js';
-import { Home } from './components/appOutline.js';
+// import { Home } from './components/appOutline.js';
 // import ChannelsListWithData from './components/ChannelsListWithData';
 
 // import {
@@ -57,7 +57,6 @@ class App extends Component {
         <div className="App">
        
         <AppOutline />
-        <Home />
           <button onClick={showPerson}>List People</button>
 
         </div>
