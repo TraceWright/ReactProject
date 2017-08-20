@@ -36,3 +36,7 @@ li {
   width: 20%;
   text-align: left;
 }
+
+.element {
+  z-index: unset
+}
