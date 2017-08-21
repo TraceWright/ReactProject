@@ -28,3 +28,60 @@ li {
   width: 20%;
   text-align: left;
 }
+
+.appGrid {
+  display: grid;
+  grid-gap: 10px;
+  padding: '20 20 20 20';
+  color: #444;
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 2%;
+}
+
+.box {
+  background-color: #F1DEE9;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+  height: 150px;
+}
+
+.header {
+  grid-area: header;
+}
+.leftside {
+  grid-area: leftside; 
+}
+.middlearea {
+  grid-area: middlearea; 
+}
+.rightside {
+  grid-area: rightside; 
+}
+.footer {
+  grid-area: footer;
+}
+
+@media screen and (min-width: 600px) {
+  .appGrid {
+    grid-template-columns: 33%  33%  33%;
+    grid-template-areas:
+      'header header header'
+      'leftside middlearea rightside'
+      'footer footer footer' 
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .appGrid {
+    grid-template-columns: 95%;
+    grid-template-areas:
+      'header'
+      'leftside' 
+      'middlearea' 
+      'rightside'
+      'footer' 
+  }
+}
